@@ -92,7 +92,7 @@ public class TodosTest {
     }
 
     @Test
-    public void testSearchOfTodos() {
+    public void testSearchOfTodos2() {
         Todos todos = new Todos();
 
         todos.add(simpleTask);
@@ -104,5 +104,30 @@ public class TodosTest {
         Assertions.assertArrayEquals(expected, actual);
     }
 
+    @Test
+    public void testSearchOfTodos1() {
+        Todos todos = new Todos();
+
+        todos.add(simpleTask);
+        todos.add(epic);
+        todos.add(meeting);
+
+        Task[] expected = {epic};
+        Task[] actual = todos.search("Молоко");
+        Assertions.assertArrayEquals(expected, actual);
+    }
+
+    @Test
+    public void testSearchOfTodos0() {
+        Todos todos = new Todos();
+
+        todos.add(simpleTask);
+        todos.add(epic);
+        todos.add(meeting);
+
+        Task[] expected = {};
+        Task[] actual = todos.search("ничего не найдёт");
+        Assertions.assertArrayEquals(expected, actual);
+    }
 
 }
